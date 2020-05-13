@@ -13,20 +13,16 @@ function FileUpload(props) {
             header: { 'content-type': 'multipart/form-data' }
         }
         formData.append("file", files[0])
-        //save the Image we chose inside the Node Server 
         Axios.post('/api/product/uploadImage', formData, config)
             .then(response => {
                 if (response.data.success) {
-
                     setImages([...Images, response.data.image])
                     props.refreshFunction([...Images, response.data.image])
-
                 } else {
                     alert('Failed to save the Image in Server')
                 }
             })
     }
-
 
     const onDelete = (image) => {
         const currentIndex = Images.indexOf(image);
