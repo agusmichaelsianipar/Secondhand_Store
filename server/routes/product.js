@@ -44,10 +44,30 @@ router.post("/uploadProduct", auth, (req, res) => {
     const product = new Product(req.body)
 
     product.save((err)=> {
-        if(err) returnres.status(400).json({ success: false, err})
-        return res,status(200).json({ success: true})
+        if(err) return res.status(400).json({ success: false, err})
+        return res.status(200).json({ success: true})
     })
 
 });
+
+router.post("/getProducts", auth, (req, res) => {
+
+    let order = req.body.order ? req.body.order : "desc";
+    let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
+    let limit = req.body.limit ? parseInt(req.body.limit) : 100;
+    let skip = parseInt(req.body.skip);
+
+    Product.find()
+        .populate("writer")
+        .sort([[sortBy, order]])
+        .skip(skip)
+        .limit(limit)
+        .exec((err, products)=>{
+            if(err) return res.status(400).json({success:false,err})
+            res.status(200).json({success:true,products,postSize: products.length})
+        })
+
+});
+
 
 module.exports = router;
