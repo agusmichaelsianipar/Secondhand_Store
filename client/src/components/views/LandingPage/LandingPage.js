@@ -21,10 +21,10 @@ function LandingPage() {
             limit: Limit
         }
         
-        getProduct(variables)
+        getProducts(variables)
     }, [])
 
-    const getProduct = (variables) => {
+    const getProducts = (variables) => {
         Axios.post('/api/product/getProducts', variables).then(response => {
             if (response.data.success) {
                 if (variables.loadMore) {
@@ -50,7 +50,7 @@ function LandingPage() {
             searchTerm: SearchTerms
         }
 
-        getProduct(variables)
+        getProducts(variables)
         
         setSkip(skip)
     }
@@ -81,7 +81,7 @@ function LandingPage() {
         setSkip(0)
         setSearchTerms(newSearchTerm)
 
-        getProduct(variables)
+        getProducts(variables)
     }
 
     return ( 
