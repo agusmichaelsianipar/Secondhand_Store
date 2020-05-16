@@ -13,9 +13,10 @@ function LandingPage() {
     const [Skip, setSkip] = useState(0)
     const [Limit, setLimit] = useState(8)
     const [PostSize, setPostSize] = useState(0)
+    
+    const [SearchTerms, setSearchTerms] = useState("")
 
     useEffect(() => {
-        const [SearchTerms, setSearchTerms] = useState("")
 
         const variables = {
             skip: Skip,
