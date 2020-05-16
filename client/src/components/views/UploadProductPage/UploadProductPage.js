@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, Button, Form, message, Input, Icon} from 'antd';
+import { Typography, Button, Form, Input } from 'antd';
 import FileUpload from '../../utils/FileUpload'
 import Axios from 'axios';
 
@@ -11,6 +11,7 @@ function UploadProductPage(props) {
     const [TitleValue, SetTitleValue] = useState("")
     const [DescriptionValue, SetDescriptionValue] = useState("")
     const [PriceValue, SetPriceValue] = useState(0)
+    const [StockValue, SetStockValue] = useState(0)
     const [Images, SetImages] = useState([])
     const onTitleChange = (event) => {
         SetTitleValue(event.currentTarget.value)
@@ -24,6 +25,10 @@ function UploadProductPage(props) {
         SetPriceValue(event.currentTarget.value)
     }
 
+    const onStockChange = (event) => {
+        SetStockValue(event.currentTarget.value)
+    }
+
     const updateImages = (newImages) => {
         SetImages(newImages)
     }
@@ -35,6 +40,7 @@ function UploadProductPage(props) {
             writer: props.user.userData._id,
             title: TitleValue,
             description: DescriptionValue,
+            stock: StockValue,
             price: PriceValue,
             images: Images
         }
@@ -51,7 +57,7 @@ function UploadProductPage(props) {
     }
 
     return (
-        <div style={{ maxwidth:'700px', margin:'5rem'}}>
+        <div style={{ maxwidth:'700px', marginTop:'5rem', marginLeft:'15rem', marginRight:'15rem', marginBottom:'5rem'}}>
             <div style={{ textAlign:'center', marginBottom:'2rem'}}>
                 <Title level={2}> Upload Barang </Title>
             </div>
@@ -62,27 +68,37 @@ function UploadProductPage(props) {
 
             <br />
             <br />
-            <label>Judul</label>
+            <label>Judul :</label>
             <Input
                 onChange={onTitleChange}
                 value={TitleValue}
             />
             <br />
             <br />
-            <label>Deskripsi</label>
+            <label>Deskripsi :</label>
             <TextArea
                 onChange={onDescriptionChange}
                 value={DescriptionValue}
             />
             <br />
             <br />
-            <label>Harga (Rp)</label>
+            <label>Stok :</label>
+            <Input
+                onChange={onStockChange}
+                value={StockValue}
+                type="number"
+            />
+            <br />
+            <br />
+            <label>Harga (Rp) :</label>
             <Input
                 onChange={onPriceChange}
                 value={PriceValue}
                 type="number"
             />
 
+            <br />
+            <br />
             <Button
                 onClick={onSubmit}
             >
