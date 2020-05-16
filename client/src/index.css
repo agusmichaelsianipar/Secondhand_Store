@@ -31,9 +31,10 @@ input.error {
   border-color: red;
 }
 
-
 .input-feedback {
   color: red;
   height: 5px;
   margin-top: -12px;
 }
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
