@@ -15,7 +15,7 @@ function LandingPage() {
     const [PostSize, setPostSize] = useState(0)
 
     const [SearchTerms, setSearchTerms] = useState("")
-    
+
     useEffect(()=>{
         const variables = {
             skip: Skip, 
@@ -86,7 +86,7 @@ function LandingPage() {
         <>
             <div style={{width:'75%', margin:'3rem auto'}}>
                 <div style={{textAlign:'center'}}>
-                    <h2>Let's Buy Any Secondhand's thing <Icon type="rocket" /></h2>
+                    <h2>Selamat Datang di SecondHand Store,<br />Selamat Belanja!!!</h2>
                 </div>
                 
                 {/*Filter*/}

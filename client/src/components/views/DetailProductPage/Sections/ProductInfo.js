@@ -15,8 +15,8 @@ function ProductInfo(props) {
         <div>
             <Descriptions title="Produk Info">
                 <Descriptions.Item label="Harga"> {Product.price}</Descriptions.Item>
-                <Descriptions.Item label="Sold">{Product.sold}</Descriptions.Item>
-                <Descriptions.Item label="View"> {Product.views}</Descriptions.Item>
+                <Descriptions.Item label="Stok">{Product.stock}</Descriptions.Item>
+                <br />
                 <Descriptions.Item label="Deskripsi"> {Product.description}</Descriptions.Item>
             </Descriptions>
 
