@@ -33,6 +33,7 @@ function LandingPage() {
                     setProducts(response.data.products)
                 }
                 setPostSize(response.data.postSize)
+                console.log(response.data.products)
             } else {
                 alert('Failed to fectch product datas')
             }

@@ -68,6 +68,24 @@ router.post("/uploadProduct", auth, (req, res) => {
 
 });
 
+router.put("/updateProducts/:_id", async (req, res) => {
+    Product.findByIdAndUpdate({
+        _id: req.params._id
+    }, { title: 'ASUS VivoBook K403' }, {
+        new: true,
+        runValidators: true
+    }).exec((err, product) => {
+        if (err) return res.status(400).json({
+            success: false,
+            err
+        })
+        return res.status(200).json({
+            success: true
+        })
+    })
+
+});
+
 router.post("/getProducts", (req, res) => {
 
     let order = req.body.order ? req.body.order : "desc";
@@ -118,8 +136,6 @@ router.get("/products_by_id", (req, res) => {
     let type = req.query.type
     let productIds = req.query.id
 
-    console.log("req.query.id", req.query.id)
-
     if (type === "array") {
         let ids = req.query.id.split(',');
         productIds = [];
@@ -128,12 +144,10 @@ router.get("/products_by_id", (req, res) => {
         })
     }
 
-    console.log("productIds", productIds)
-
     Product.find({ '_id': { $in: productIds } })
         .populate('writer')
         .exec((err, product) => {
-            if (err) return res.status(400).send(err)
+            if (err) return req.status(400).send(err)
             return res.status(200).send(product)
         })
 });
