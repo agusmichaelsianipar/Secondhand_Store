@@ -1,5 +1,9 @@
 # Secondhand_Store
-
+<hr/>
+<h1>Paypal Account</h1>
+<h5>Email: sb-wfpdv1819534@personal.example.com</h5>
+<h5>Password: secondhand</h5>
+<hr/>
 <h1>Landing Page</h1>
 <img src="https://github.com/agusmichaelsianipar/Secondhand_Store/blob/master/hasil/Screenshot%20(159)%20-%20Copy.png"/>
 <hr/>
