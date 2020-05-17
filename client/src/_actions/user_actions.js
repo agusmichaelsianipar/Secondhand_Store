@@ -1,13 +1,14 @@
 import axios from 'axios';
 import {
-    LOGIN_USER,
-    REGISTER_USER,
-    AUTH_USER,
-    LOGOUT_USER,
-    ADD_TO_CART_USER,
-    GET_CART_ITEMS_USER,
-    REMOVE_CART_ITEM_USER
-} from './types';
+  LOGIN_USER,
+  REGISTER_USER,
+  AUTH_USER,
+  LOGOUT_USER,
+  ADD_TO_CART_USER,
+  GET_CART_ITEMS_USER,
+  REMOVE_CART_ITEM_USER,
+  ON_SUCCESS_BUY_USER
+} from "./types";
 import { USER_SERVER } from '../components/Config.js';
 
 export function registerUser(dataToSubmit){
@@ -96,6 +97,13 @@ export function removeCartItem(id) {
     return {
         type: REMOVE_CART_ITEM_USER,
         payload: request
+    }
+}
+
+export function onSuccessBuy(data) {
+    return {
+        type: ON_SUCCESS_BUY_USER,
+        payload: data
     }
 }
 
